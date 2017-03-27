@@ -7,6 +7,45 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
+
+
 <body>
+  <div id="content"></div>
+
+  <script type="text/jsx">
+    
+    var MyComponent = React.createClass({
+
+
+      myFunc: function() {
+        console.log("temp: " + this.props.children);
+      },
+
+      render: function() {
+        return(
+          <div>
+            <h2>Hello World {this.props.param_a} and {this.props.param_b}</h2>
+            <h3>{this.props.children}</h3>
+            <p>{this.props.param_a.toLowerCase()}</p>
+            <p>{this.props.param_b.toUpperCase()}</p>
+            <a onClick={this.myFunc} href="#" >Click me</a>
+          </div>
+        );
+      }
+    });
+
+    React.render(
+        <div>
+          <MyComponent param_a="A" param_b="a">text</MyComponent>
+          <MyComponent param_a="B" param_b="b"/> 
+          <MyComponent param_a="C" param_b='c'/> 
+        </div>,
+       document.getElementById('content'));
+
+  </script>
+
+  
+
+
 </body>
 </html>
