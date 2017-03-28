@@ -10,10 +10,36 @@
 
 
 <body>
-  <div id="content"></div>
+  <div id="container"></div>
 
-  <script type="text/jsx">
+  <script type="text/babel">
+
+  var Comment = React.createClass({
+    edit: function() {
+      alert('Editing a comment');
+    },
+    remove: function () {
+      alert('Removing a comment');
+    },
+    render: function() {
+      return (
+        <div className="commentContainer">
+          <div className="commentText">Text of whatever</div>
+          <button onClick={this.edit} className="button-primary">Edit</button>
+          <button onClick={this.remove} className="button-danger">Remove</button>
+        </div>
+      );
+    }
+  });
+
+  ReactDOM.render(
+      <div className="board">
+        <Comment>Hew now</Comment> 
+      </div>
+      , document.getElementById('container'));
+
     
+  /*
     var MyComponent = React.createClass({
 
 
@@ -49,3 +75,17 @@
 
 </body>
 </html>
+
+notes
+this.props.children
+
+state instead of property (checkbox example)
+
+render: function() {
+  multiple renders
+}
+
+
+Refs
+  motivation - id for textarea? wait but we have multiple...
+
